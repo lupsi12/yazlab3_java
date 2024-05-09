@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserCreateRequest {
-    public static final String SEQUENCE_NAME = "veri_sequence";
+    public static final String SEQUENCE_NAME = "user_sequence";
     private Long id;
     private String username;
     private String email;
