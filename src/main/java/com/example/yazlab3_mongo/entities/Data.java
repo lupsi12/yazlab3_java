@@ -1,5 +1,6 @@
 package com.example.yazlab3_mongo.entities;
 
+import com.example.yazlab3_mongo.Responses.DataResponse;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
@@ -21,6 +22,12 @@ public class Data {
     private String abstract_;
     private String fulltext;
     private String keywords;
+    private String fasttext;
+    private String scibert;
 
 
+    public Data(DataResponse dataResponse) {
+        this.id = dataResponse.getId();
+        this.setAbstract_(dataResponse.getAbstract_());
+    }
 }

@@ -15,4 +15,6 @@ public class DataCreateRequest {
     private String abstract_;
     private String fulltext;
     private String keywords;
+    private String fasttext;
+    private String scibert;
 }

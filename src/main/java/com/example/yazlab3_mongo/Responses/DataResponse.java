@@ -14,6 +14,8 @@ public class DataResponse {
     private String abstract_;
     private String fulltext;
     private String keywords;
+    private String fasttext;
+    private String scibert;
 
     public DataResponse(com.example.yazlab3_mongo.entities.Data dataEntity) {
         this.id = dataEntity.getId();
@@ -22,5 +24,7 @@ public class DataResponse {
         this.abstract_ = dataEntity.getAbstract_();
         this.fulltext = dataEntity.getFulltext();
         this.keywords = dataEntity.getKeywords();
+        this.fasttext = dataEntity.getFasttext();
+        this.scibert = dataEntity.getScibert();
     }
 }

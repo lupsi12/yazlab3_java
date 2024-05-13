@@ -31,6 +31,11 @@ public class DataController {
     public DataResponse getOneData(@PathVariable Long dataId){
         return dataService.getDataById(dataId);
     }
+    @GetMapping("/match")
+    public List<DataResponse> getDataMatchKeyword(@RequestParam String keyword){
+        return dataService.getDataMatchKeyword(keyword);
+    }
+
     @PostMapping
     public Data addData(@RequestBody DataCreateRequest dataCreateRequest){
         return dataService.addData(dataCreateRequest);

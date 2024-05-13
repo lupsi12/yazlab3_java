@@ -1,5 +1,6 @@
 package com.example.yazlab3_mongo.entities;
 
+import com.example.yazlab3_mongo.Responses.UserResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,4 +21,11 @@ public class User {
     private String username;
     private String email;
     private String password;
+    private String interests;
+    private String fasttext;
+
+    public User(UserResponse userResponse) {
+        this.id = userResponse.getId();
+        this.username = userResponse.getUsername();
+    }
 }

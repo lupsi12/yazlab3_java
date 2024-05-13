@@ -7,9 +7,11 @@ import com.example.yazlab3_mongo.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -30,6 +32,10 @@ public class UserController {
     @PostMapping
     public User addUser(@RequestBody UserCreateRequest userCreateRequest){
         return userService.addUser(userCreateRequest);
+    }
+    @PatchMapping("/{userId}")
+    public ResponseEntity<?> partialUpdateUser(@PathVariable Long userId, @RequestBody Map<String, Object> updates){
+        return userService.partialUpdateUser(userId,updates);
     }
     @DeleteMapping("/{userId}")
     public void deleteOneUser(@PathVariable Long userId){

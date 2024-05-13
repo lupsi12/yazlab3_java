@@ -13,11 +13,14 @@ public class UserResponse {
     private String username;
     private String email;
     private String password;
-
+    private String interests;
+    private String fasttext;
     public UserResponse(User userEntity) {
         this.id = userEntity.getId();
         this.username = userEntity.getUsername();
         this.email = userEntity.getEmail();
         this.password = userEntity.getPassword();
+        this.interests = userEntity.getInterests();
+        this.fasttext = userEntity.getFasttext();
     }
 }

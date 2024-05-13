@@ -14,6 +14,7 @@ import java.util.Optional;
 public interface DataService {
     List<DataResponse> getAllData();
     DataResponse getDataById(Long dataId);
+    List<DataResponse> getDataMatchKeyword(String keyword);
     Data addData(DataCreateRequest dataCreateRequest);
     void deleteData(Long id);
     void deleteAllDatas();

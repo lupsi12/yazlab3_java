@@ -12,7 +12,9 @@ import com.example.yazlab3_mongo.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -40,6 +42,19 @@ public class DataManager implements DataService {
     }
 
     @Override
+    public List<DataResponse> getDataMatchKeyword(String keyword) {
+        List<DataResponse> dataMatches = new ArrayList<>();;
+        List<Data> dataList = dataRepo.findAll();
+        List<DataResponse> dataList2 = dataList.stream().map(p -> new DataResponse(p)).collect(Collectors.toList());
+        for (int i = 0; i < dataList2.size(); i++) {
+            if(dataList2.get(i).getKeywords().contains(keyword)) {
+                dataMatches.add(dataList2.get(i));
+            }
+        }
+        return dataMatches;
+    }
+
+    @Override
     public Data addData(DataCreateRequest dataCreateRequest) {
         Data data = new Data();
         data.setId(sequenceGeneratorService.getSquenceNumber(dataCreateRequest.SEQUENCE_NAME));
@@ -48,6 +63,8 @@ public class DataManager implements DataService {
         data.setAbstract_(dataCreateRequest.getAbstract_());
         data.setFulltext(dataCreateRequest.getFulltext());
         data.setKeywords(dataCreateRequest.getKeywords());
+        data.setFasttext(dataCreateRequest.getFasttext());
+        data.setScibert(dataCreateRequest.getScibert());
         return dataRepo.save(data);
     }
 
