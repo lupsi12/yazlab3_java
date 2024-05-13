@@ -1,20 +1,16 @@
 package com.example.yazlab3_mongo.Managers;
 
 import com.example.yazlab3_mongo.Repository.DataRepo;
-import com.example.yazlab3_mongo.Repository.UserRepo;
 import com.example.yazlab3_mongo.Requests.DataCreateRequest;
 import com.example.yazlab3_mongo.Responses.DataResponse;
-import com.example.yazlab3_mongo.Responses.UserResponse;
 import com.example.yazlab3_mongo.Services.DataService;
 import com.example.yazlab3_mongo.Services.SequenceGeneratorService;
 import com.example.yazlab3_mongo.entities.Data;
-import com.example.yazlab3_mongo.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service

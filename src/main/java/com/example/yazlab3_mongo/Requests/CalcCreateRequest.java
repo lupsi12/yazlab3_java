@@ -1,15 +1,8 @@
 package com.example.yazlab3_mongo.Requests;
 
-import com.example.yazlab3_mongo.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 
 @Data
 @AllArgsConstructor

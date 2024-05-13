@@ -13,7 +13,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import java.security.PrivilegedAction;
 
 @Data
 @NoArgsConstructor

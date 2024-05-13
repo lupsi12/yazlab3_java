@@ -23,6 +23,7 @@ public class User {
     private String password;
     private String interests;
     private String fasttext;
+    private String scibert;
 
     public User(UserResponse userResponse) {
         this.id = userResponse.getId();

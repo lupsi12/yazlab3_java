@@ -15,4 +15,5 @@ public class UserCreateRequest {
     private String password;
     private String interests;
     private String fasttext;
+    private String scibert;
 }

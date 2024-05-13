@@ -1,20 +1,15 @@
 package com.example.yazlab3_mongo.Controllers;
 
 import com.example.yazlab3_mongo.Requests.DataCreateRequest;
-import com.example.yazlab3_mongo.Requests.UserCreateRequest;
 import com.example.yazlab3_mongo.Responses.DataResponse;
-import com.example.yazlab3_mongo.Responses.UserResponse;
 import com.example.yazlab3_mongo.Services.DataService;
-import com.example.yazlab3_mongo.Services.UserService;
 import com.example.yazlab3_mongo.entities.Data;
-import com.example.yazlab3_mongo.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/data")

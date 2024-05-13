@@ -51,6 +51,7 @@ public class UserManager implements UserService {
         user.setPassword(userCreateRequest.getPassword());
         user.setInterests(userCreateRequest.getInterests());
         user.setFasttext(userCreateRequest.getFasttext());
+        user.setScibert(userCreateRequest.getScibert());
         return userRepo.save(user);
     }
 

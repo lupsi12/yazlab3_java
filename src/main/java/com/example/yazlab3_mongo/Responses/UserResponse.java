@@ -15,6 +15,7 @@ public class UserResponse {
     private String password;
     private String interests;
     private String fasttext;
+    private String scibert;
     public UserResponse(User userEntity) {
         this.id = userEntity.getId();
         this.username = userEntity.getUsername();
@@ -22,5 +23,6 @@ public class UserResponse {
         this.password = userEntity.getPassword();
         this.interests = userEntity.getInterests();
         this.fasttext = userEntity.getFasttext();
+        this.scibert = userEntity.getScibert();
     }
 }
