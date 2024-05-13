@@ -10,7 +10,9 @@ import lombok.NoArgsConstructor;
 public class CalcCreateRequest {
     public static final String SEQUENCE_NAME = "calc_sequence";
     private Long id;
-    private float cosine_similarity;
+    private float cosine_similarity_fasttext;
+    private float cosine_similarity_scibert;
     private Long user_id;
     private Long data_id;
+    private boolean like;
 }

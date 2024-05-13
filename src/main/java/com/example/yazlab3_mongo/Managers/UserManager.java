@@ -52,6 +52,9 @@ public class UserManager implements UserService {
         user.setInterests(userCreateRequest.getInterests());
         user.setFasttext(userCreateRequest.getFasttext());
         user.setScibert(userCreateRequest.getScibert());
+        user.setRecall(userCreateRequest.getRecall());
+        user.setPrecision(userCreateRequest.getPrecision());
+        user.setSecim(userCreateRequest.getSecim());
         return userRepo.save(user);
     }
 
@@ -70,6 +73,18 @@ public class UserManager implements UserService {
                     break;
                 case "fasttext":
                     user.setFasttext((String) value);
+                    break;
+                case "scibert":
+                    user.setScibert((String) value);
+                    break;
+                case "recall":
+                    user.setRecall((float) value);
+                    break;
+                case "presicion":
+                    user.setPrecision((float) value);
+                    break;
+                case "secim":
+                    user.setSecim((String) value);
                     break;
                 // Diğer alanlar için gerekli işlemleri yapın
             }

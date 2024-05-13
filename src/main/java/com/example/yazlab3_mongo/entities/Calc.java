@@ -24,13 +24,15 @@ public class Calc {
     @Id
     //@GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
-    private float cosine_similarity;
+    private float cosine_similarity_fasttext;
+    private float cosine_similarity_scibert;
     @OneToOne(fetch =  FetchType.EAGER)//lazy user objeai gelmesin diye
-    @JoinColumn(name = "veri_id",nullable = false)
+    @JoinColumn(name = "user_id",nullable = false)
     @OnDelete(action =  OnDeleteAction.CASCADE)
     private User user;
     @OneToOne(fetch =  FetchType.EAGER)//lazy user objeai gelmesin diye
-    @JoinColumn(name = "veri_id",nullable = false)
+    @JoinColumn(name = "data_id",nullable = false)
     @OnDelete(action =  OnDeleteAction.CASCADE)
     private com.example.yazlab3_mongo.entities.Data data;
+    private boolean like;
 }

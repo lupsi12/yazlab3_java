@@ -16,6 +16,9 @@ public class UserResponse {
     private String interests;
     private String fasttext;
     private String scibert;
+    private float recall;
+    private float precision;
+    private String secim;
     public UserResponse(User userEntity) {
         this.id = userEntity.getId();
         this.username = userEntity.getUsername();
@@ -24,5 +27,8 @@ public class UserResponse {
         this.interests = userEntity.getInterests();
         this.fasttext = userEntity.getFasttext();
         this.scibert = userEntity.getScibert();
+        this.recall = userEntity.getRecall();
+        this.precision = userEntity.getPrecision();
+        this.secim = userEntity.getSecim();
     }
 }

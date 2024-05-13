@@ -16,4 +16,7 @@ public class UserCreateRequest {
     private String interests;
     private String fasttext;
     private String scibert;
+    private float recall;
+    private float precision;
+    private String secim;
 }

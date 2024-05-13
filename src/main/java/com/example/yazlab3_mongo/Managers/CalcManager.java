@@ -66,7 +66,9 @@ public class CalcManager implements CalcService {
         calc.setUser(user);
         calc.setData(data);
         calc.setId(sequenceGeneratorService.getSquenceNumber(calcCreateRequest.SEQUENCE_NAME));
-        calc.setCosine_similarity(calcCreateRequest.getCosine_similarity());
+        calc.setCosine_similarity_fasttext(calcCreateRequest.getCosine_similarity_fasttext());
+        calc.setCosine_similarity_scibert(calcCreateRequest.getCosine_similarity_scibert());
+        calc.setLike(calcCreateRequest.isLike());
         return calcRepo.save(calc);
     }
 
