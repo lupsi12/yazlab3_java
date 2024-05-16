@@ -13,9 +13,11 @@ import com.example.yazlab3_mongo.entities.Calc;
 import com.example.yazlab3_mongo.entities.Data;
 import com.example.yazlab3_mongo.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -71,7 +73,34 @@ public class CalcManager implements CalcService {
         calc.setLike(calcCreateRequest.isLike());
         return calcRepo.save(calc);
     }
+    @Override
+    public ResponseEntity<?> partialUpdateCalc(Long id, Map<String, Object> updates) {
+        Calc calc = calcRepo.findById(id).orElse(null);
+        if (calc == null) {
+            return ResponseEntity.notFound().build();
+        }
 
+        // Güncelleme yapılacak alanları al
+        updates.forEach((key, value) -> {
+            switch (key) {
+                case "like":
+                    calc.setLike(Boolean.valueOf(String.valueOf(value)));
+                    break;
+                case "cosine_similarity_fasttext":
+                    calc.setCosine_similarity_fasttext(Float.parseFloat(String.valueOf(value)));
+                    break;
+                case "cosine_similarity_scibert":
+                    calc.setCosine_similarity_scibert(Float.parseFloat(String.valueOf(value)));
+                    break;
+                // Diğer alanlar için gerekli işlemleri yapın
+            }
+        });
+
+        // Değişiklikleri kaydet
+        calcRepo.save(calc);
+
+        return ResponseEntity.ok(calc);
+    }
 
     @Override
     public void deleteCalc(Long calcId) {

@@ -7,9 +7,11 @@ import com.example.yazlab3_mongo.entities.Calc;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -30,6 +32,10 @@ public class CalcController {
     @PostMapping
     public Calc addCalc(@RequestBody CalcCreateRequest calcCreateRequest){
         return calcService.addCalc(calcCreateRequest);
+    }
+    @PatchMapping("/{calcId}")
+    public ResponseEntity<?> partialUpdateUser(@PathVariable Long calcId, @RequestBody Map<String, Object> updates){
+        return calcService.partialUpdateCalc(calcId,updates);
     }
     @DeleteMapping("/{referansId}")
     public void deleteOneCalc(@PathVariable Long calcId){

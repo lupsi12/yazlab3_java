@@ -52,9 +52,12 @@ public class UserManager implements UserService {
         user.setInterests(userCreateRequest.getInterests());
         user.setFasttext(userCreateRequest.getFasttext());
         user.setScibert(userCreateRequest.getScibert());
-        user.setRecall(userCreateRequest.getRecall());
-        user.setPrecision(userCreateRequest.getPrecision());
-        user.setSecim(userCreateRequest.getSecim());
+        user.setRecall_fasttext(userCreateRequest.getRecall_fasttext());
+        user.setPrecision_fasttext(userCreateRequest.getPrecision_fasttext());
+        user.setSecim_fasttext(userCreateRequest.getSecim_fasttext());
+        user.setRecall_scibert(userCreateRequest.getRecall_scibert());
+        user.setPrecision_scibert(userCreateRequest.getPrecision_scibert());
+        user.setSecim_scibert(userCreateRequest.getSecim_scibert());
         return userRepo.save(user);
     }
 
@@ -77,14 +80,23 @@ public class UserManager implements UserService {
                 case "scibert":
                     user.setScibert((String) value);
                     break;
-                case "recall":
-                    user.setRecall((float) value);
+                case "recall_fasttext":
+                    user.setRecall_fasttext(Float.parseFloat(String.valueOf(value)));
                     break;
-                case "presicion":
-                    user.setPrecision((float) value);
+                case "presicion_fasttext":
+                    user.setPrecision_fasttext(Float.parseFloat(String.valueOf(value)));
                     break;
-                case "secim":
-                    user.setSecim((String) value);
+                case "secim_fasttext":
+                    user.setSecim_fasttext((String) value);
+                    break;
+                case "recall_scibert":
+                    user.setRecall_scibert(Float.parseFloat(String.valueOf(value)));
+                    break;
+                case "presicion_scibert":
+                    user.setPrecision_scibert(Float.parseFloat(String.valueOf(value)));
+                    break;
+                case "secim_scibert":
+                    user.setSecim_scibert((String) value);
                     break;
                 // Diğer alanlar için gerekli işlemleri yapın
             }

@@ -24,9 +24,12 @@ public class User {
     private String interests;
     private String fasttext;
     private String scibert;
-    private float recall;
-    private float precision;
-    private String secim;
+    private float recall_fasttext;
+    private float precision_fasttext;
+    private String secim_fasttext;
+    private float recall_scibert;
+    private float precision_scibert;
+    private String secim_scibert;
 
     public User(UserResponse userResponse) {
         this.id = userResponse.getId();
